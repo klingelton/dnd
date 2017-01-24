@@ -1,0 +1,97 @@
+{
+"gameName":"Blake's Game",
+"characters":
+    [
+        {
+        "characterName":"",
+        "class":"",
+        "level":0,
+        "background":"",
+        "playerName":"",
+        "faction":"",
+        "race": "race",
+        "alignment":"",
+        "experiencePoints":"",
+        "dciNumber":"",
+        "vitals":
+            {
+            "strength":0,
+            "dexterity":0,
+            "constitution":0,
+            "intelligence":0,
+            "wisdom":0,
+            "charisma":0
+            },
+        "passiveWisdom":0,
+        "otherProficiencies":"",
+        "armourClass":0,
+        "initiative":0,
+        "speed":0,
+        "hitPoints":
+            {
+            "hitpointMax":0,
+            "currentHitPoints":0,
+            "temporaryHitPoints":0
+            },
+        "savingThrows":
+            {
+            "strength":0,
+            "dexterity":0,
+            "constitution":0,
+            "intelligence":0,
+            "wisdom":0,
+            "charisma":0
+            },
+        "skills":
+            {
+            "acrobatics":{"value":0, "enabled":false},
+            "animalHandling":{"value":0, "enabled":false},
+            "arcana":{"value":0, "enabled":false},
+            "athletics":{"value":0, "enabled":false},
+            "deception":{"value":0, "enabled":false},
+            "history":{"value":0, "enabled":false},
+            "insight":{"value":0, "enabled":false},
+            "intimidation":{"value":0, "enabled":false},
+            "investigation":{"value":0, "enabled":false},
+            "medicine":{"value":0, "enabled":false},
+            "nature":{"value":0, "enabled":false},
+            "perception":{"value":0, "enabled":false},
+            "performance":{"value":0, "enabled":false},
+            "persuation":{"value":0, "enabled":false},
+            "religion":{"value":0, "enabled":false},
+            "slightOfHand":{"value":0, "enabled":false},
+            "stealth":{"value":0, "enabled":false},
+            "survival":{"value":0, "enabled":false}
+            },
+        "attacksSpellcasting":
+            {
+            "notes":"",
+            "attacks":
+                [
+                {
+                "name":"",
+                "atkBonus":"",
+                "damageType":""
+                }
+                ]
+            },
+        "personalityTraits":"",
+        "ideals":"",
+        "bonds":"",
+        "flaws":"",
+        "featuresTraits":"",
+        "age":0,
+        "height":"",
+        "weight":"",
+        "eyes":"",
+        "skin":"",
+        "hair":"",
+        "factionRank":"",
+        "additionalFeaturesTraits":"",
+        "Treasure":
+            [
+            ],
+        "characterBackstory":""
+        }
+    ]
+}
