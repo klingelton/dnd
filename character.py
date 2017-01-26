@@ -1,15 +1,37 @@
 from tkinter import *
 
-class characterDetails(Frame):
-    def __init__(self, characterSheet):
-        super(characterDetails, self).__init__()
+
+
+class MainSheet(Frame):
+    def __init__(self, frame, characterSheet):
+        super(MainSheet, self).__init__(frame)
+        self.pack()
+        self.characterSheet = characterSheet
+        self.frames = {}
+        
+        self.BuildFrame()
+        
+    def BuildFrame(self):
+        self.frames['characterDetails'] = CharacterDetails(self, self.characterSheet)
+        self.frames['characterDetails'].grid(row=0, columnspan=2)
+        self.frames['characterAttributes'] = CharacterAttributes(self, self.characterSheet)
+        self.frames['characterAttributes'].grid(row=1)
+        self.frames['otherProficiencies'] = OtherProficiencies(self, self.characterSheet)
+        self.frames['otherProficiencies'].grid(row=2, columnspan=2)
+        
+
+class CharacterDetails(Frame):
+    def __init__(self, frame, characterSheet):
+        super(CharacterDetails, self).__init__(frame)
+        self.pack()
         self.characterSheet = characterSheet
         self.updates={}
         self.entry = {}
+        
+        self.BuildFrame()
     
     def BuildFrame(self):
-        Label(self,text='Character Name').grid(row=0, column=0, rowspan=3)
-        
+        Label(self, text='Character Name').grid(row=0, column=0)
         self.entry['characterName'] = Entry(self)
         self.entry['characterName'].grid(row=0, column=1, rowspan=3)
         
@@ -50,7 +72,7 @@ class characterDetails(Frame):
         Label(self, text='DCI Number').grid(row=3, column=6)
         self.entry['dciNumber']=Entry(self)
         self.entry['dciNumber'].grid(row=3, column=7)
-    
+        
     def LoadCharacter(self):
         for e in self.entry:
             self.entry[e].delete(0, END)
@@ -62,48 +84,57 @@ class characterDetails(Frame):
     
     def getCharacterUpdates(self):
         return self.updates
-    
-class characterAttributes(Frame):
-    def __init__(self, characterSheet):
-        super(characterAttributes).__init__()
+
+class CharacterAttributes(Frame):
+    def __init__(self, frame, characterSheet):
+        super(CharacterAttributes,self).__init__(frame)
         self.characterSheet = characterSheet
-        self.updates
+        self.updates = {}
         self.entry={}
+        
+        self.BuildFrame()
+        
     def BuildFrame(self):
         Label(self, text='Strength').grid(row=0, column=0)
-        self.entry['strength']['value']=Entry(self)
+        self.entry['strength']= {}
+        self.entry['strength']['value']=Entry(self, width=5)
         self.entry['strength']['value'].grid(row=1, column=0)
-        self.entry['strength']['modifier']=Entry(self)
+        self.entry['strength']['modifier']=Entry(self,width=5)
         self.entry['strength']['modifier'].grid(row=2,column=0)
         
         Label(self, text='Dexterity').grid(row=3, column=0)
-        self.entry['dexterity']['value']=Entry(self)
+        self.entry['dexterity']={}
+        self.entry['dexterity']['value']=Entry(self,width=5)
         self.entry['dexterity']['value'].grid(row=4, column=0)
-        self.entry['dexterity']['modifier']=Entry(self)
+        self.entry['dexterity']['modifier']=Entry(self,width=5)
         self.entry['dexterity']['modifier'].grid(row=5,column=0)
         
         Label(self, text='Constitution').grid(row=6, column=0)
-        self.entry['constitution']['value']=Entry(self)
+        self.entry['constitution']={}
+        self.entry['constitution']['value']=Entry(self,width=5)
         self.entry['constitution']['value'].grid(row=7, column=0)
-        self.entry['constitution']['modifier']=Entry(self)
+        self.entry['constitution']['modifier']=Entry(self,width=5)
         self.entry['constitution']['modifier'].grid(row=8,column=0)
         
         Label(self, text='Intelligence').grid(row=9, column=0)
-        self.entry['intelligence']['value']=Entry(self)
+        self.entry['intelligence']={}
+        self.entry['intelligence']['value']=Entry(self,width=5)
         self.entry['intelligence']['value'].grid(row=10, column=0)
-        self.entry['intelligence']['modifier']=Entry(self)
+        self.entry['intelligence']['modifier']=Entry(self,width=5)
         self.entry['intelligence']['modifier'].grid(row=11,column=0)
         
         Label(self, text='Wisdom').grid(row=12, column=0)
-        self.entry['wisdom']['value']=Entry(self)
+        self.entry['wisdom']={}
+        self.entry['wisdom']['value']=Entry(self,width=5)
         self.entry['wisdom']['value'].grid(row=13, column=0)
-        self.entry['wisdom']['modifier']=Entry(self)
+        self.entry['wisdom']['modifier']=Entry(self,width=5)
         self.entry['wisdom']['modifier'].grid(row=14,column=0)
         
         Label(self, text='Charisma').grid(row=15, column=0)
-        self.entry['charisma']['value']=Entry(self)
+        self.entry['charisma']={}
+        self.entry['charisma']['value']=Entry(self,width=5)
         self.entry['charisma']['value'].grid(row=16, column=0)
-        self.entry['charisma']['modifier']=Entry(self)
+        self.entry['charisma']['modifier']=Entry(self,width=5)
         self.entry['charisma']['modifier'].grid(row=17,column=0) 
     
     def LoadCharacter(self):
@@ -183,6 +214,7 @@ class skills(Frame):
         super(skills, self).__init__()
         self.characterSheet = characterSheet
         self.updates = {}
+        self.entry
         
     def BuildFrame(self):
         self.entry['acrobatics']['enabled'] = IntVar()
@@ -296,20 +328,30 @@ class skills(Frame):
     def getCharacterUpdates(self):
         return self.updates
     
-class otherProficiencies(Frame):
-    def __init__(self, characterSheet):
-        super(otherProficiencies, self).__init__()
+class OtherProficiencies(Frame):
+    def __init__(self, frame, characterSheet):
+        super(OtherProficiencies, self).__init__(frame)
         self.characterSheet = characterSheet
         self.updates = {}
+        self.entry ={}
+        self.BuildFrame()
         
     def BuildFrame(self):
-        pass
+        self.entry['passiveWisdom'] = Entry(self, width=5)
+        self.entry['passiveWisdom'].grid(row=0, column=0)
+        Label(self, text='PassiveWisdom (Perception)').grid(row=0, column=1)
+        
+        Label(self, text='Other Proficiencies & Languages').grid(row=1, column=0, columnspan=2)
+        self.entry['otherProficiencies'] = Text(self, width=15)
+        self.entry['otherProficiencies'].grid(row=2, columnspan=2)
     
     def LoadCharacter(self):
-        pass
+        self.entry['otherProficiencies'].delete(1.0, END)
+        self.entry['passiveWisdom'].delete(0, END)
     
     def SaveCharacter(self):
-        pass
+        self.updates['otherProficiencies'] = self.entry['otherProficiencies'].get(1.0, END)
+        self.updates['passiveWisdom'] = self.entry['passiveWisdom'].get()
     
     def getCharacterUpdates(self):
         return self.updates
@@ -321,7 +363,7 @@ class defence(Frame):
         self.updates = {}
         
     def BuildFrame(self):
-        pass
+        self.entry
     
     def LoadCharacter(self):
         pass
@@ -403,15 +445,3 @@ class featuresAndTraits(Frame):
     def getCharacterUpdates(self):
         return self.updates
 
-
-class character(Frame):
-    def __init__(self, characterSheet):
-        super(character, self).__init__()
-        self.characterSheet = characterSheet
-        self.updates={}
-        
-    def BuildCharacterSheet(self):
-        pass
-        
-    def getCharacterSheet(self):
-        return self.characterSheet
