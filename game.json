@@ -15,12 +15,12 @@
         "dciNumber":"",
         "vitals":
             {
-            "strength":0,
-            "dexterity":0,
-            "constitution":0,
-            "intelligence":0,
-            "wisdom":0,
-            "charisma":0
+            "strength":{"value":0, "modifier":0},
+            "dexterity":{"value":0, "modifier":0},
+            "constitution":{"value":0, "modifier":0},
+            "intelligence":{"value":0, "modifier":0},
+            "wisdom":{"value":0, "modifier":0},
+            "charisma":{"value":0, "modifier":0}
             },
         "passiveWisdom":0,
         "otherProficiencies":"",
@@ -35,12 +35,12 @@
             },
         "savingThrows":
             {
-            "strength":0,
-            "dexterity":0,
-            "constitution":0,
-            "intelligence":0,
-            "wisdom":0,
-            "charisma":0
+            "strength":{"value":0,"enabled":false},
+            "dexterity":{"value":0,"enabled":false},
+            "constitution":{"value":0,"enabled":false},
+            "intelligence":{"value":0,"enabled":false},
+            "wisdom":{"value":0,"enabled":false},
+            "charisma":{"value":0,"enabled":false}
             },
         "skills":
             {
@@ -68,6 +68,16 @@
             "notes":"",
             "attacks":
                 [
+                {
+                "name":"",
+                "atkBonus":"",
+                "damageType":""
+                },
+                {
+                "name":"",
+                "atkBonus":"",
+                "damageType":""
+                },
                 {
                 "name":"",
                 "atkBonus":"",
